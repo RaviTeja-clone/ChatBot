@@ -1,0 +1,90 @@
+version: "2.0"
+
+stories:
+
+- story: book room success path
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: search_provider_book_room
+  - action: utter_search_provider_book_room
+  - intent: inform_rooms
+    entities:
+    - room_count: 3
+  - action: utter_responsive_button
+  - intent: simple_rooms
+  - action: utter_simple_rooms
+
+- story: book room success path
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: search_provider_book_room
+  - action: utter_search_provider_book_room
+  - intent: inform_rooms
+    entities:
+    - room_count: 3
+  - action: utter_responsive_button
+  - intent: delux_rooms
+  - action: utter_delux_rooms
+
+- story: book room success path 1
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: search_provider_book_room
+    entities: 
+    - room_count: 4
+  - action: utter_responsive_button
+  - intent: simple_rooms
+  - action: utter_simple_rooms
+
+- story: book room success with room count
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: search_provider_book_room_room_count
+    entities: 
+    - room_count: 4
+  - action: utter_responsive_button
+  - intent: delux_rooms
+  - action: utter_delux_rooms
+
+- story: book room success with room count
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: search_provider_book_room_room_count
+    entities: 
+    - room_count: 4
+  - action: utter_responsive_button
+  - intent: simple_rooms
+  - action: utter_simple_rooms
+
+- story: book room success with room type and room count
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: search_provider_book_room_room_count_room_type
+    entities:
+      - room_count: 4
+      - room_type: delux
+  - action: utter_room_type_book
+
+
+- story: clean room right away path
+  steps:
+  - intent: search_provider_clean_room
+  - action: utter_search_provider_clean_room
+  - intent: inform_clean_room_now
+  - action: utter_clean_room_right_now
+
+- story: schedule cleaning using relative time
+  steps:
+  - intent: search_provider_clean_room
+  - action: utter_search_provider_clean_room
+  - intent: inform_clean_room_relative
+    entities:
+      - no_of_hours: 4
+  - action: action_clean_room_relative
+  

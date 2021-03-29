@@ -1,0 +1,108 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - faq
+  - search_provider_book_room
+  - search_provider_book_room_room_count
+  - search_provider_book_room_room_count_room_type
+  - inform_rooms
+  - simple_rooms
+  - delux_rooms
+  - search_provider_clean_room
+  - inform_clean_room_now
+  - inform_clean_room_relative
+
+entities:
+  - room_count
+  - room_type
+  - time 
+  - no_of_hours
+
+slots:
+  room_count:
+    type: text
+    influence_conversation: true
+  room_type:
+    type: text
+    influence_conversation: true
+  time: 
+    type: any
+  no_of_hours:
+    type: float
+    influence_conversation: true
+
+responses:
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_faq/checkin:
+  - text: "Check-in time starts at 4 PM. Minimum check-in age is 21. Please contact the reception for early check-in requests."
+
+  utter_faq/checkout:
+  - text: "Check-out time is 11 AM. Please contact the reception for late checkout requests."
+  
+  utter_faq/restaurant:
+  - text: "Yes, the hotel has a restaurant called the Zephyr Bar. With our menu we strive to reflect the historic art and the spirit of our neighborhood by offering a glimpse into what makes our area unique."
+
+  utter_faq/cancel_reservation:
+  - text: "To cancel a reservation, select the “Reservations” link from the homepage. On the Reservations page, under the heading ‘View, Change or Cancel a Reservation,’ enter your confirmation number, and either the last name on the reservation or the last four digits of the credit card used to make the reservation."
+
+  utter_faq/cancellation_policy:
+  - text: "The booking deposit is refundable if the cancellation occurs at least 15 days before arrival. For cancellations made after this limit, a penalty will be imposed based on the cancellation policy."
+
+  utter_faq/breakfast_availabity:
+  - text: "The hotel provides its guests with a free made-to-order breakfast each morning."
+
+  utter_faq/breakfast_timings:
+  - text: "Monday through Friday breakfast is 6 am to 9 am. On Saturday and Sunday, we are open from 7 am to 10:30 am."
+
+  utter_faq/restaurant_timings:
+  - text: "Our restaurant serves a dazzling 24-hour menu."
+
+  utter_welcome:
+  - text: "Welcome to our hotel"
+
+  utter_search_provider_book_room:
+  - text: "How many rooms would you like to book?"
+
+  utter_responsive_button:
+  - text: "What type of room would you want to book?"
+    buttons:
+    - title: "Simple"
+      payload: "/simple_rooms"
+    - title: "Delux"
+      payload: "/delux_rooms"
+
+  utter_simple_rooms:
+  - text: "You have chosen to book {room_count} simple rooms"
+
+  utter_delux_rooms:
+  - text: "You have chosen to book {room_count} delux rooms"
+
+  utter_room_type_book:
+  - text: "You have chosen to book {room_count} {room_type} rooms"
+
+  utter_please_rephrase:
+  - text: "Please rephrase your query"
+
+  utter_search_provider_clean_room:
+  - text: "When should I arrange for a cleaning?"
+
+  utter_clean_room_right_now:
+  - text: "Sure, I will send someone to your room right away"
+
+  utter_clean_room_relative:
+  - text: "Sure, I have scheduled a cleaning for {time} "
+
+actions:
+  - action_clean_room_relative
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

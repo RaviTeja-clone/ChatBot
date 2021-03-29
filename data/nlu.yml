@@ -1,0 +1,189 @@
+version: "2.0"
+
+nlu:
+- regex: room_count
+  examples: |
+    - \d{1}
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - wassup
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: faq/checkin
+  examples: |
+    - what are your check-in timings
+    - check-in timings please
+    - Tell me your check-in timings
+    - check-in timings
+    - when will your hotel open 
+    - checkin timings
+
+- intent: faq/checkout
+  examples: |
+    - what are your check-out timings
+    - checkout timings please
+    - tell me your checkout times
+    - when will your hotel close
+    - check-out timings
+
+- intent: faq/cancel_reservation
+  examples: |
+    - cancel a reservation
+    - reservation cancelation
+    - how do i cancel a reservation
+    - how can i cancel a reservation
+
+- intent: faq/cancellation_policy
+  examples: |
+    - what is your cancellation policy?
+    - cancellation policy
+    - cancellation policy of your hotel
+    - list the cancellation policy 
+
+- intent: faq/restaurant
+  examples: |
+    - does the hotel have a restaurant?
+    - hotel has a restaurant
+    - does a restaurant exists in the hotel?
+  
+- intent: faq/breakfast_availabity
+  examples: |
+    - does the hotel offer breakfast?
+    - does hotel provides breakfast
+    - is breakfast available in hotel
+    - does breakfast available 
+    - does bf available
+    - does hotel provides bf?
+    - does the hotel offer bf?
+    - is bf available in hotel
+
+- intent: faq/breakfast_timings
+  examples: |
+    - what are the breakfast timings?
+    - what are the bf timings?
+    - bf timings
+    - breakfast timings
+    - tell me the breakfast timings
+    - tell me the bf timings
+    - tell me the timings of breakfast
+    - tell me the timings of bf
+    - what are the timings of breakfast?
+    - what are the timings of bf?
+    - tell me your tiffin timings
+    - tiffin time
+
+- intent: faq/restaurant_timings
+  examples: |
+    - what are the timings of restaurant?
+    - what are the restaurant timings?
+    - restaurant timings
+    - timings of restaurant
+    - tell me the timings of restaurant
+    - tell me restaurant timings
+
+- intent: search_provider_book_room
+  examples: |
+    - i want to book a room
+    - book a room
+    - i would like to book a room
+    - i want to book a room for my stay
+    - book a room for stay
+
+- intent: search_provider_book_room_room_count
+  examples: |
+    - I want to book a room for [2](room_count) people
+    - book [3](room_count) rooms  for stay
+    - book two rooms
+    - i want to book [2](room_count) rooms for stay
+    - i would like to book [3](room_count) rooms for stay
+  
+- intent: search_provider_book_room_room_count_room_type
+  examples: |
+    - i want to book [4](room_count) [delux](room_type) rooms
+    - i want to book [1](room_count) [simple](room_type) rooms
+    - book [2](room_count) [simple](room_type) rooms for stay
+    - i need [1](room_count) [delux](room_type) room
+
+
+- intent: inform_rooms
+  examples: |
+    - i want to book [2](room_count) rooms for stay
+    - i want to book a room for [2](room_count) people
+    - book [5](room_count) rooms
+    - [4](room_count) rooms
+    - [6](room_count) rooms in the hotel
+    - [4](room_count)
+    - i want to book [3](room_count) rooms in hotel
+
+- intent: simple_rooms
+  examples: |
+    - booked [simple](room_type) rooms
+    - I have booked [simple](room_type) rooms
+    - simple rooms
+  
+- intent: delux_rooms
+  examples: |
+    - booked [delux](room_type) rooms
+    - I have booked [delux](room_type) rooms
+    - delux rooms
+
+- intent: search_provider_clean_room
+  examples: |
+    - I want to have my room clean
+    - could you please clean my room
+    - i want my room get cleaned
+    - could you send service boy to clean my room
+    - i like my room to be cleaned 
+
+- intent: inform_clean_room_now
+  examples: |
+    - Could you send someone right now?
+    - send room cleaner now
+    - please send someone right now?
+    - send server right now
+    - i want it to cleaned at this moment
+
+- regex: no_of_hours
+  examples: |
+    - \d{1}
+- intent: inform_clean_room_relative
+  examples: |
+    - could you send someone after [2](no_of_hours) hours
+    - send someone after [3](no_of_hours) hours
+    - send after [2](no_of_hours) hours
+    - please send a service boy after a [5](no_of_hours) hours
+    - please send someone after [3](no_of_hours) hours
+
